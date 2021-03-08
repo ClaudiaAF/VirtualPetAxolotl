@@ -10,16 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace VirtualPetAxolotl
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class EnterNamePage : ContentPage
+    public partial class Dashboard : ContentPage
     {
-        public EnterNamePage()
+        public Dashboard()
         {
             InitializeComponent();
-        }
-
-        async void NameSubmit(System.Object sender, System.EventArgs e)
-        {
-            await Navigation.PushModalAsync(new Dashboard());
         }
     }
 }
