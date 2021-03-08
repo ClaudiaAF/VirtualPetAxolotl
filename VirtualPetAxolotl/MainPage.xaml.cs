@@ -14,5 +14,11 @@ namespace VirtualPetAxolotl
         {
             InitializeComponent();
         }
+
+        async void MeetPetClicked(System.Object sender, System.EventArgs e)
+        {
+            await Navigation.PushModalAsync(new EnterNamePage());
+        }
+
     }
 }

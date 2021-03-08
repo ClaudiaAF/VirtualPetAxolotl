@@ -1,27 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="VirtualPetAxolotl.MainPage">
-
-    <StackLayout>
-
-        <StackLayout VerticalOptions="CenterAndExpand" Spacing="50" Margin="30, 84, 30, 0">
-            <Label Text="Axolotl Virtual Pet App"
+             x:Class="VirtualPetAxolotl.EnterNamePage">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Start" Spacing="50" Margin="30, 84, 30, 0">
+            <Label Text="Edit Axolotl Name"
                    HorizontalOptions="Center"
                    VerticalOptions="CenterAndExpand"
-                   TextColor="DarkOliveGreen"
+                   TextColor="DarkBlue"
                    FontAttributes="Bold"
                    FontSize="30"></Label>
-            <Button Text="Meet your new pet"
+            <Entry Text="" Placeholder="My Axolotl Name"></Entry>
+            <Button Text="Save"
                     HorizontalOptions="Center"
                     VerticalOptions="CenterAndExpand"
-                    TextColor="AntiqueWhite"
+                    TextColor="DarkGoldenrod"
                     FontSize="18"
                     FontAttributes="Bold"
-                    BackgroundColor="DarkOliveGreen"
-                    Clicked="MeetPetClicked"></Button>
+                    BackgroundColor="Transparent"></Button>
 
         </StackLayout>
-    </StackLayout>
-
+    </ContentPage.Content>
 </ContentPage>
