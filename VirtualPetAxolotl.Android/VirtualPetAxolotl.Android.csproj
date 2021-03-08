@@ -95,5 +95,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\BackgroundImage.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\StaticDash.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
