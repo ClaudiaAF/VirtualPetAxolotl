@@ -8,15 +8,22 @@
     <StackLayout >
 
         <Button Text="my Axolotl"
-                x:Name="axolotlNameButton">
+                x:Name="axolotlNameButton" 
+                BackgroundColor="Transparent"
+                TextColor="White"
+                >
+            
         </Button>
         <Label x:Name="levelLabel" 
             Text="Level 1"
-              TextColor="White" ></Label>
+              TextColor="White" 
+               HorizontalTextAlignment="Center"
+               Margin="10"></Label>
 
         <Label x:Name="xpLabel"
             Text="1000xp"
-               TextColor="White"></Label>
+               TextColor="White"
+               HorizontalTextAlignment="Center"></Label>
         
         <Image x:Name="axolotlImage"
                Source="Axolotl_nothealthy_1"
@@ -25,16 +32,30 @@
                HeightRequest="360"
                ></Image>
 
-
+        <FlexLayout AlignItems="Center">
         <ImageButton x:Name="feedIcon"
-                     Source="FeedIcon"
+                     Source="feed_icon"
                      BackgroundColor="Transparent"
                      HeightRequest="100"
                      Margin="20" 
                      Clicked="feedAxolotlTapped"
                      >
         </ImageButton>
+            <ImageButton 
+                     Source="clean_icon"
+                     BackgroundColor="Transparent"
+                     HeightRequest="100"
+                     Margin="20" >
+            </ImageButton>
 
+            <ImageButton 
+                     Source="filter_icon"
+                     BackgroundColor="Transparent"
+                     HeightRequest="100"
+                     Margin="20" 
+                     >
+            </ImageButton>
+        </FlexLayout>
 
     </StackLayout>
     
