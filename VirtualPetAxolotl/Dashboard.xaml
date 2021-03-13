@@ -7,16 +7,32 @@
 
     <StackLayout >
 
-        <Image x:Name="Image1"
+        <Button Text="my Axolotl"
+                x:Name="axolotlNameButton">
+        </Button>
+        <Label x:Name="levelLabel" 
+            Text="Level 1"
+               ></Label>
+
+        <Label x:Name="xpLabel"
+            Text="1000xp"
+               ></Label>
+        
+        <Image x:Name="axolotlImage"
                Source="AxolotlCharacter"
                HorizontalOptions="CenterAndExpand"
                VerticalOptions="CenterAndExpand"
-               HeightRequest="360"></Image>
+               HeightRequest="360"
+               ></Image>
 
-        <ImageButton Source="FeedIcon"
+
+        <ImageButton x:Name="feedIcon"
+                     Source="FeedIcon"
                      BackgroundColor="Transparent"
                      HeightRequest="100"
-                     Margin="20" >
+                     Margin="20" 
+                     Clicked="feedAxolotlTapped"
+                     >
         </ImageButton>
 
 
