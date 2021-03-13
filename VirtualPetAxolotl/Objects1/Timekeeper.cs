@@ -4,8 +4,7 @@ using System.Text;
 
 namespace VirtualPetAxolotl.NewFolder1
 {
-    public class Axolotl
+    public class Timekeeper
     {
-        
     }
 }
