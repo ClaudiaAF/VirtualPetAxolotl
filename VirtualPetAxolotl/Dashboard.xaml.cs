@@ -15,6 +15,10 @@ namespace VirtualPetAxolotl
         public Dashboard()
         {
             InitializeComponent();
+
+           
         }
+
+
     }
 }

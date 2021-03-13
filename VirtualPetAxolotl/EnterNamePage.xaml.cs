@@ -20,6 +20,7 @@ namespace VirtualPetAxolotl
         async void NameSubmit(System.Object sender, System.EventArgs e)
         {
             await Navigation.PushModalAsync(new Dashboard());
+           
         }
     }
 }
