@@ -12,11 +12,11 @@
         </Button>
         <Label x:Name="levelLabel" 
             Text="Level 1"
-               ></Label>
+              TextColor="White" ></Label>
 
         <Label x:Name="xpLabel"
             Text="1000xp"
-               ></Label>
+               TextColor="White"></Label>
         
         <Image x:Name="axolotlImage"
                Source="AxolotlCharacter"
