@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VirtualPetAxolotl.NewFolder1;
 using VirtualPetAxolotl;
+using System.Timers;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -49,11 +50,14 @@ namespace VirtualPetAxolotl
             InitializeComponent();
 
             updateUI();
+            StartTimer();
 
         }
 
         void feedAxolotlTapped(System.Object sender, System.EventArgs e)
         {
+            RestartTimer();
+
             axolotl.giveFood();
 
             updateUI();
@@ -65,9 +69,56 @@ namespace VirtualPetAxolotl
 
             axolotl.Xp = 0;
             axolotl.CurrentAxolotlState = AxolotlState.healthy;
-           
+            RestartTimer();
 
             updateUI();
+        }
+
+        private Timekeeper timekeeper = new Timekeeper();
+
+        private static Timer timer;
+
+        private void StartTimer()
+        {
+            timer = new Timer();
+
+            timer.Interval = 1000;
+            timer.Enabled = true;
+            timer.Elapsed += UpdateTimedData;
+            timer.Start();
+        }
+
+        private void RestartTimer()
+        {
+            timekeeper.StartTime = DateTime.Now;
+
+            StartTimer();
+        }
+
+        private void UpdateTimedData(object sender, ElapsedEventArgs e)
+        {
+            TimeSpan timeElapsed = e.SignalTime - timekeeper.StartTime;
+
+            AxolotlState newAxolotlState = axolotl.CurrentAxolotlState;
+
+            if (timeElapsed.TotalSeconds < 10)
+            {
+                newAxolotlState = AxolotlState.healthy;
+            }
+            else if (timeElapsed.TotalSeconds < 20)
+            {
+                newAxolotlState = AxolotlState.nothealthy;
+            }
+            else if (timeElapsed.TotalSeconds >= 20)
+            {
+                newAxolotlState = AxolotlState.sick;
+            }
+
+            if (newAxolotlState != axolotl.CurrentAxolotlState)
+            {
+                axolotl.CurrentAxolotlState = newAxolotlState;
+                updateUI();
+            }
         }
     }
 }
