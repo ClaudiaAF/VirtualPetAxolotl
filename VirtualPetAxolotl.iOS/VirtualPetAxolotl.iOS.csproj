@@ -70,7 +70,31 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ImageAsset Include="Assets.xcassets\AxolotlCharacter.imageset\AxolotlCharacter1.png">
+    <ImageAsset Include="Assets.xcassets\Axolotl_healthy_1.imageset\AxolotlCharacter1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Axolotl_healthy_2.imageset\Axolotl_healthy_2.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Axolotl_healthy_3.imageset\Axolotl_healthy_3.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Axolotl_nothealthy_1.imageset\Axolotl_nothealthy_1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Axolotl_nothealthy_2.imageset\Axolotl_nothealthy_2.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Axolotl_nothealthy_3.imageset\Axolotl_nothealthy_3.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Axolotl_sick_1.imageset\Axolotl_sick_1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Axolotl_sick_2.imageset\Axolotl_sick_3.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Axolotl_sick_3.imageset\Axolotl_sick_3.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\BackgroundImage.imageset\backgroundimage.png">
@@ -85,13 +109,37 @@
     <ImageAsset Include="Assets.xcassets\Dashboard.imageset\Dashboard.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AxolotlCharacter.imageset\Contents.json">
+    <ImageAsset Include="Assets.xcassets\Axolotl_healthy_1.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\FeedIcon.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\FeedIcon.imageset\FeedIcon.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Axolotl_nothealthy_1.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Axolotl_sick_1.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Axolotl_healthy_2.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Axolotl_nothealthy_2.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Axolotl_sick_2.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Axolotl_healthy_3.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Axolotl_nothealthy_3.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Axolotl_sick_3.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\StaticDash.imageset\Contents.json">

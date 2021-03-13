@@ -19,7 +19,7 @@
                TextColor="White"></Label>
         
         <Image x:Name="axolotlImage"
-               Source="AxolotlCharacter"
+               Source="Axolotl_nothealthy_1"
                HorizontalOptions="CenterAndExpand"
                VerticalOptions="CenterAndExpand"
                HeightRequest="360"
