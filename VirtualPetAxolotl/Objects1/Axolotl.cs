@@ -60,6 +60,11 @@ namespace VirtualPetAxolotl.NewFolder1
 
         public void giveFood()
         {
+            Xp = Xp + 200;
+        }
+
+        public void giveAttention()
+        {
             Xp = Xp + 500;
         }
     }

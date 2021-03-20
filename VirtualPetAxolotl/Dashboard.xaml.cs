@@ -25,14 +25,15 @@ namespace VirtualPetAxolotl
             if (axolotlXp < 1)
             {
                 levelLabel.Text = "Not being cared for";
-                xpLabel.Text = "tap the plant to feed your pet";
-            } else
+                xpLabel.Text = "tap the plant to feed your Axolotl";
+            } 
+            else
             {
                 levelLabel.Text = "Level 1" + Levels.GetLevelFromXp(axolotlXp).ToString();
                 xpLabel.Text = axolotlXp.ToString();
             }
 
-           
+
 
             Device.BeginInvokeOnMainThread(async () =>
             {
@@ -41,6 +42,10 @@ namespace VirtualPetAxolotl
                 if (axolotl.CurrentAxolotlState == AxolotlState.sick)
                 {
                     AxolotlDead();
+
+                } else if (axolotl.CurrentAxolotlState == AxolotlState.nothealthy) {
+
+                    DisplayAlert("Lovesick", "Your Axolotl is missing you! Double tap on your pets tummy to remind him you're here", "Give Attention");
                 }
             });
         }
@@ -62,6 +67,15 @@ namespace VirtualPetAxolotl
 
             updateUI();
         }
+        void OnTapGestureRecognizerTapped(object sender, EventArgs args)
+        {
+            RestartTimer();
+
+            axolotl.giveAttention();
+
+            updateUI();
+        }
+
 
         private async void AxolotlDead()
         {
@@ -73,6 +87,7 @@ namespace VirtualPetAxolotl
 
             updateUI();
         }
+
 
         private Timekeeper timekeeper = new Timekeeper();
 
@@ -101,15 +116,15 @@ namespace VirtualPetAxolotl
 
             AxolotlState newAxolotlState = axolotl.CurrentAxolotlState;
 
-            if (timeElapsed.TotalSeconds < 10)
+            if (timeElapsed.TotalSeconds < 20)
             {
                 newAxolotlState = AxolotlState.healthy;
             }
-            else if (timeElapsed.TotalSeconds < 20)
+            else if (timeElapsed.TotalSeconds < 30)
             {
                 newAxolotlState = AxolotlState.nothealthy;
             }
-            else if (timeElapsed.TotalSeconds >= 20)
+            else if (timeElapsed.TotalSeconds >= 40)
             {
                 newAxolotlState = AxolotlState.sick;
             }

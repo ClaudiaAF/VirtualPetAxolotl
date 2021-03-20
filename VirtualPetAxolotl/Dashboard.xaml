@@ -29,8 +29,15 @@
                Source="Axolotl_nothealthy_1"
                HorizontalOptions="CenterAndExpand"
                VerticalOptions="CenterAndExpand"
-               HeightRequest="360"
-               ></Image>
+               HeightRequest="360">
+            
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer
+                Tapped="OnTapGestureRecognizerTapped"
+                NumberOfTapsRequired="2" 
+                />
+            </Image.GestureRecognizers>
+        </Image>
 
         <FlexLayout AlignItems="Center">
         <ImageButton x:Name="feedIcon"
