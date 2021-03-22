@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local2="clr-namespace:VirtualPetAxolotl.Objects1"
              x:Class="VirtualPetAxolotl.Dashboard"
              BackgroundImageSource="Dashboard" >
 
@@ -39,12 +39,55 @@
             </Image.GestureRecognizers>
         </Image>
 
+        <StackLayout Margin="20">
+            <local2:SlideToActView HeightRequest="60"
+                                   SlideCompleted="Handle_SlideCompleted">
+                
+                <local2:SlideToActView.Thumb>
+                    <Frame CornerRadius="15"
+                       HasShadow="false" 
+                       BackgroundColor="Transparent" 
+                       Padding="0">
+                        <Image Source="clean_icon"
+                           HorizontalOptions="Center" 
+                           VerticalOptions="Center" 
+                           HeightRequest="85" 
+                           WidthRequest="85" />
+                    </Frame>
+                </local2:SlideToActView.Thumb>
+
+                <local2:SlideToActView.TrackBar>
+                    <Frame CornerRadius="15" 
+                       HasShadow="false" 
+                       BackgroundColor="#498D88" 
+                       Padding="0">
+                        <Label Text="Slide 'x' to clean" 
+                           HorizontalOptions="CenterAndExpand" 
+                           VerticalOptions="CenterAndExpand"
+                               TextColor="White"/>
+                    </Frame>
+                </local2:SlideToActView.TrackBar>
+
+                <local2:SlideToActView.FillBar>
+                    <Frame CornerRadius="15" 
+                       HasShadow="false" 
+                       BackgroundColor="ForestGreen" 
+                       Padding="0" />
+                </local2:SlideToActView.FillBar>
+            </local2:SlideToActView>
+            <Label x:Name="MessageLbl" 
+               FontAttributes="Bold" 
+               TextColor="Green" />
+        </StackLayout>
+
         <FlexLayout AlignItems="Center">
-        <ImageButton x:Name="feedIcon"
+
+            
+            <ImageButton x:Name="feedIcon"
                      Source="feed_icon"
                      BackgroundColor="Transparent"
                      HeightRequest="100"
-                     Margin="20" 
+                     Margin="5" 
                      Clicked="feedAxolotlTapped"
                      >
         </ImageButton>

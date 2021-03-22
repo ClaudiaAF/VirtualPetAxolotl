@@ -67,5 +67,10 @@ namespace VirtualPetAxolotl.NewFolder1
         {
             Xp = Xp + 500;
         }
+
+        public void cleanTank()
+        {
+            Xp = Xp + 300;
+        }
     }
 }

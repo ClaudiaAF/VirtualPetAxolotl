@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VirtualPetAxolotl.Objects1;
 using VirtualPetAxolotl.NewFolder1;
 using VirtualPetAxolotl;
 using System.Timers;
@@ -50,6 +51,9 @@ namespace VirtualPetAxolotl
             });
         }
 
+
+
+        
         public Dashboard()
         {
             InitializeComponent();
@@ -57,7 +61,9 @@ namespace VirtualPetAxolotl
             updateUI();
             StartTimer();
 
+
         }
+
 
         void feedAxolotlTapped(System.Object sender, System.EventArgs e)
         {
@@ -72,6 +78,14 @@ namespace VirtualPetAxolotl
             RestartTimer();
 
             axolotl.giveAttention();
+
+            updateUI();
+        }
+        void Handle_SlideCompleted(object sender, System.EventArgs e)
+        {
+            RestartTimer();
+
+            axolotl.cleanTank();
 
             updateUI();
         }
@@ -136,4 +150,7 @@ namespace VirtualPetAxolotl
             }
         }
     }
+
+    //swipe to clean function
+    
 }
