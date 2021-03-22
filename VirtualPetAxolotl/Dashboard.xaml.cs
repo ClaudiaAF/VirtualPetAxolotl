@@ -88,6 +88,10 @@ namespace VirtualPetAxolotl
             axolotl.cleanTank();
 
             updateUI();
+            MessageLbl.Text = "All Clean";
+            MessageLbl.Opacity = 1;
+            MessageLbl.FadeTo(0, 1000);
+
         }
 
 

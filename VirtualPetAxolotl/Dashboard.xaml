@@ -76,8 +76,8 @@
                 </local2:SlideToActView.FillBar>
             </local2:SlideToActView>
             <Label x:Name="MessageLbl" 
-               FontAttributes="Bold" 
-               TextColor="Green" />
+               FontAttributes="Italic" 
+               TextColor="White" />
         </StackLayout>
 
         <FlexLayout AlignItems="Center">
