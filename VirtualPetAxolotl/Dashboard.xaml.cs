@@ -47,6 +47,9 @@ namespace VirtualPetAxolotl
                 } else if (axolotl.CurrentAxolotlState == AxolotlState.nothealthy) {
 
                     DisplayAlert("Lovesick", "Your Axolotl is missing you! Double tap on your pets tummy to remind him you're here", "Give Attention");
+                    needIcon.Opacity = 0;
+                    await needIcon.FadeTo(1, 2000);
+                    await needIcon.FadeTo(0, 2000);
                 }
             });
         }
@@ -134,7 +137,12 @@ namespace VirtualPetAxolotl
 
             AxolotlState newAxolotlState = axolotl.CurrentAxolotlState;
 
-            if (timeElapsed.TotalSeconds < 20)
+             if (timeElapsed.TotalSeconds == 15)
+            {
+                needIcon.Opacity = 0;
+                needIcon.FadeTo(1, 2000);
+            }
+            else if (timeElapsed.TotalSeconds < 20)
             {
                 newAxolotlState = AxolotlState.healthy;
             }
@@ -152,6 +160,8 @@ namespace VirtualPetAxolotl
                 axolotl.CurrentAxolotlState = newAxolotlState;
                 updateUI();
             }
+
+            
         }
     }
 

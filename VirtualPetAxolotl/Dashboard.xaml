@@ -82,29 +82,36 @@
 
         <FlexLayout AlignItems="Center">
 
-            
-            <ImageButton x:Name="feedIcon"
+                
+                <ImageButton x:Name="feedIcon"
                      Source="feed_icon"
                      BackgroundColor="Transparent"
                      HeightRequest="100"
-                     Margin="5" 
+                     Margin="0 0 20 20" 
                      Clicked="feedAxolotlTapped"
                      >
-        </ImageButton>
-            <ImageButton 
-                     Source="clean_icon"
-                     BackgroundColor="Transparent"
-                     HeightRequest="100"
-                     Margin="20" >
+                
             </ImageButton>
+            <Image x:Name="needIcon"
+               Source="need_icon"
+               HeightRequest="50"
+               Margin="20 20 50 0"
+                   Opacity="1"/>
 
             <ImageButton 
                      Source="filter_icon"
                      BackgroundColor="Transparent"
                      HeightRequest="100"
-                     Margin="20" 
+                     Margin="5 5 20 10" 
                      >
             </ImageButton>
+
+
+            <Image x:Name="needIcon"
+               Source="need_icon"
+               HeightRequest="50"
+               Margin="20 20 50 1"
+                   Opacity="1"/>
         </FlexLayout>
 
     </StackLayout>
