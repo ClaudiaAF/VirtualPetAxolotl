@@ -11,13 +11,15 @@
             <Frame BackgroundColor="Transparent"
                    OutlineColor="#317777"
                    CornerRadius="5">
-            <Entry Text="" 
+
+                <Entry x:Name="AxolotlNameInput"
+                   Text="" 
                    Placeholder="My Axolotl Name" 
                    PlaceholderColor="White" 
                    BackgroundColor="Transparent"
-                   TextColor="White">
-                   
-            </Entry>
+                   TextColor="White"
+                   />
+
             </Frame>
             <Button Text="Save"
                     HorizontalOptions="Center"
@@ -26,7 +28,7 @@
                     FontSize="18"
                     FontAttributes="Bold"
                     BackgroundColor="Transparent"
-                    Clicked="NameSubmit"></Button>
+                    Clicked="SaveAxolotlName"></Button>
 
         </StackLayout>
     </StackLayout>

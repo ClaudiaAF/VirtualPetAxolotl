@@ -6,21 +6,25 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using VirtualPetAxolotl.AxolotlSpace;
 
 namespace VirtualPetAxolotl
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EnterNamePage : ContentPage
     {
-        public EnterNamePage()
-        {
-            InitializeComponent();
-        }
+        private Axolotl axolotl = new Axolotl();
 
-        async void NameSubmit(System.Object sender, System.EventArgs e)
-        {
+        public EnterNamePage()
+            {
+                InitializeComponent();
+            }
+
+            async void SaveAxolotlName(object sender, EventArgs e)
+            {
+            axolotl.AxoltolName = AxolotlNameInput.Text;
             await Navigation.PushModalAsync(new Dashboard());
-           
         }
-    }
+        }
+    
 }

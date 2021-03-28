@@ -65,36 +65,22 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <BundleResource Include="53203-hearts.json" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ImageAsset Include="Assets.xcassets\Axolotl_healthy_1.imageset\AxolotlCharacter1.png">
+    <ImageAsset Include="Assets.xcassets\Dead.imageset\axolotl dead-04.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Axolotl_healthy_2.imageset\Axolotl_healthy_2.png">
+    <ImageAsset Include="Assets.xcassets\Healthy.imageset\AxolotlCharacter1.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Axolotl_healthy_3.imageset\Axolotl_healthy_3.png">
+    <ImageAsset Include="Assets.xcassets\Content.imageset\Axolotl_nothealthy_1.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Axolotl_nothealthy_1.imageset\Axolotl_nothealthy_1.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Axolotl_nothealthy_2.imageset\Axolotl_nothealthy_2.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Axolotl_nothealthy_3.imageset\Axolotl_nothealthy_3.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Axolotl_sick_1.imageset\Axolotl_sick_1.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Axolotl_sick_2.imageset\Axolotl_sick_3.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Axolotl_sick_3.imageset\Axolotl_sick_3.png">
+    <ImageAsset Include="Assets.xcassets\Sick.imageset\Axolotl_sick_1.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\BackgroundImage.imageset\backgroundimage.png">
@@ -112,37 +98,25 @@
     <ImageAsset Include="Assets.xcassets\Dashboard.imageset\Dashboard.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Axolotl_healthy_1.imageset\Contents.json">
+    <ImageAsset Include="Assets.xcassets\Healthy.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Axolotl_nothealthy_1.imageset\Contents.json">
+    <ImageAsset Include="Assets.xcassets\Content.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Axolotl_sick_1.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Axolotl_healthy_2.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Axolotl_nothealthy_2.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Axolotl_sick_2.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Axolotl_healthy_3.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Axolotl_nothealthy_3.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Axolotl_sick_3.imageset\Contents.json">
+    <ImageAsset Include="Assets.xcassets\Sick.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\clean_icon.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\droplet.imageset\Group 58.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\feed_icon.imageset\feed_icon.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\filter.imageset\Group 60.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\filter_icon.imageset\Contents.json">
@@ -157,10 +131,19 @@
     <ImageAsset Include="Assets.xcassets\Images.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\need_icon.imageset\!.png">
+    <ImageAsset Include="Assets.xcassets\Dead.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\need_icon.imageset\Contents.json">
+    <ImageAsset Include="Assets.xcassets\needs_icon.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\droplet.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\filter.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\needs_icon.imageset\need_icon1.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\StaticDash.imageset\Contents.json">
@@ -228,6 +211,15 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie">
+      <Version>4.0.9</Version>
+    </PackageReference>
+    <PackageReference Include="Xamanimation">
+      <Version>1.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.CommunityToolkit">
+      <Version>1.1.0</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
