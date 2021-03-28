@@ -20,11 +20,11 @@ namespace VirtualPetAxolotl
                 InitializeComponent();
             }
 
-            async void SaveAxolotlName(object sender, EventArgs e)
-            {
+        async void SaveAxolotlName(object sender, EventArgs e)
+        {
             axolotl.AxoltolName = AxolotlNameInput.Text;
+            Axolotl.Init();
             await Navigation.PushModalAsync(new Dashboard());
         }
-        }
-    
+    }
 }

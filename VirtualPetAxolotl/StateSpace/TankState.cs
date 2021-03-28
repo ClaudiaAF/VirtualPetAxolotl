@@ -55,9 +55,8 @@ namespace VirtualPetAxolotl.StateSpace
             if (NewStateType != CurrentStateType)
             {
                 CurrentStateType = NewStateType;
-                Axolotl.AxolotlState.DestroyRate
-                    += currentTypeDestroyRate
-                    += (int)CurrentStateType;
+                Axolotl.AxolotlState.DestroyRate += currentTypeDestroyRate;
+                Axolotl.AxolotlState.DestroyRate += (int)CurrentStateType;
             }
 
             Dashboard.UpdateTankHpBar();

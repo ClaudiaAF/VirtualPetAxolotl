@@ -11,14 +11,14 @@ using Xamarin.Forms.Xaml;
 namespace VirtualPetAxolotl
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ReplaceFilter : ContentPage
+    public partial class MenuPage : ContentPage
     {
-        public ReplaceFilter()
+        public MenuPage()
         {
             InitializeComponent();
         }
 
-        async void backToDashboard(object sender, EventArgs e)
+        async void exit_menu(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new Dashboard());
         }

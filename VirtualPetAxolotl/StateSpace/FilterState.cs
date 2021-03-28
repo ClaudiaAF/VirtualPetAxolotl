@@ -8,7 +8,7 @@ namespace VirtualPetAxolotl.StateSpace
     public enum FilterStateType
     {
         Clean = 0,
-        Dirty = 3
+        Dirty = 1
     }
     class FilterState : State
     {
@@ -44,13 +44,11 @@ namespace VirtualPetAxolotl.StateSpace
             if (NewStateType != CurrentStateType)
             {
                 CurrentStateType = NewStateType;
-                Axolotl.AxolotlState.DestroyRate
-                    += currentTypeDestroyRate
-                    += (int)CurrentStateType;
+                Axolotl.AxolotlState.DestroyRate += currentTypeDestroyRate;
+                Axolotl.AxolotlState.DestroyRate += (int)CurrentStateType;
 
-                Axolotl.TankState.DestroyRate
-                    += currentTypeDestroyRate
-                    += (int)CurrentStateType;
+                Axolotl.TankState.DestroyRate += currentTypeDestroyRate;
+                Axolotl.TankState.DestroyRate += (int)CurrentStateType;
             }
 
             Dashboard.UpdateFitlerHpBar();

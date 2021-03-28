@@ -22,13 +22,20 @@ namespace VirtualPetAxolotl
         {
             InitializeComponent();
             Current = this;
-            Axolotl.Init();
             axolotlImage.Source = Axolotl.AxolotlState.CurrentStateType.ToString();
+            UpdateXpLevel();
         }
 
+        async void menuClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new MenuPage());
+        }
         public static void UpdateAxolotlImage()
         {
-            Current.axolotlImage.Source = Axolotl.AxolotlState.CurrentStateType.ToString();
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                Current.axolotlImage.Source = Axolotl.AxolotlState.CurrentStateType.ToString();
+            });
 
             if (Axolotl.AxolotlState.CurrentStateType == AxolotlStateType.Dead)
             {
@@ -90,10 +97,6 @@ namespace VirtualPetAxolotl
             await Navigation.PushModalAsync(new EnterNamePage());
         }
 
-        async void ReplaceFilterPage(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new ReplaceFilter());
-        }
 
         void OnTapGestureRecognizerTapped(object sender, EventArgs args)
         {
@@ -103,7 +106,18 @@ namespace VirtualPetAxolotl
         private void AxolotlDead()
         {
             try
+
             {
+                Axolotl.AxolotlState.HP = 0;
+                Axolotl.TankState.HP = 0;
+                Axolotl.FilterState.HP = 0;
+                Axolotl.HungerState.HP = 0;
+                UpdateHungerHpBar();
+                UpdateAxolotlHpBar();
+                UpdateTankHpBar();
+                UpdateFitlerHpBar();
+                Axolotl.TimeKeeper.destroyTimer();
+
                 Device.BeginInvokeOnMainThread(async () =>
                 {
                     bool answer = await Current.DisplayAlert("Dead", "Your Axolotl has died", "New Axolotl?", "Nah");
@@ -111,6 +125,7 @@ namespace VirtualPetAxolotl
                     if (answer)
                     {
                         Axolotl.Init();
+                        axolotlImage.Source = Axolotl.AxolotlState.CurrentStateType.ToString();
                     }
                 });
                     
@@ -127,7 +142,7 @@ namespace VirtualPetAxolotl
         }
 
 
-        public void OnDragOver(object sender, DropEventArgs e)
+        public void OnDrop(object sender, DropEventArgs e)
         {
             Axolotl.ReplaceFitler();
 

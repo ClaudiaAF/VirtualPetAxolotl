@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="VirtualPetAxolotl.MenuPage"
+             BackgroundColor="#276262">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand"
+                     HorizontalOptions="Center">
+            
+            <ImageButton Clicked="exit_menu"
+                         Source="exit_icon"
+                         VerticalOptions="Center"
+                         HorizontalOptions="CenterAndExpand"
+                         BackgroundColor="Transparent"
+                          xct:TouchEffect.AnimationDuration="250"
+                     xct:TouchEffect.PressedScale="0.75"
+                     xct:TouchEffect.PressedOpacity="0.6"
+                   xct:TouchEffect.LongPressDuration="3000"
+                         Margin="30">
+                
+            </ImageButton>
+            <BoxView
+                HeightRequest="1"
+                Color="white">
+            </BoxView>
+            
+            <Button x:Name="Rename"
+                   Text="Rename Your Pet"
+                    BackgroundColor="Transparent"
+                    TextColor="White">                                
+            </Button>
+            
+            <BoxView
+                HeightRequest="1"
+                Color="white">
+            </BoxView>
+
+            <Button x:Name="Help"
+                   Text="Help"
+                   BackgroundColor="Transparent"
+                    TextColor="White">
+            </Button>
+
+            <BoxView
+                HeightRequest="1"
+                Color="white">
+            </BoxView>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

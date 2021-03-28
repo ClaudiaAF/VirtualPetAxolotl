@@ -4,13 +4,31 @@
              x:Class="VirtualPetAxolotl.Dashboard"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit" xmlns:axolotlspace="clr-namespace:VirtualPetAxolotl.AxolotlSpace"
              BackgroundImageSource="Dashboard" >
+
+   
+    
     <StackLayout >
+
+        <ImageButton
+            Source="gear_icon"
+            BackgroundColor="Transparent"
+            VerticalOptions="Start"
+            WidthRequest="50"
+            Margin="20,28,0,0"
+            HorizontalOptions="StartAndExpand"
+            Clicked="menuClicked"
+                     xct:TouchEffect.AnimationDuration="250"
+                     xct:TouchEffect.PressedScale="0.75"
+                     xct:TouchEffect.PressedOpacity="0.6">
+            
+        </ImageButton>
 
         <Button Text="My Axolotl"
                     HorizontalOptions="Center"
                     VerticalOptions="CenterAndExpand"
                     FontAttributes="Bold"
                     FontSize="18"
+                Margin="0,-55,0,0"
                     TextColor="#ffff"
                     BackgroundColor="Transparent"
                     Clicked="EditNameTapped"
@@ -71,7 +89,7 @@
                 <DropGestureRecognizer
                         x:Name="dropped"
                         AllowDrop="True"
-                        DragOver="OnDragOver"/>
+                        Drop="OnDrop"/>
             </Image.GestureRecognizers>
         </Image>
         <ImageButton x:Name="feedIcon"

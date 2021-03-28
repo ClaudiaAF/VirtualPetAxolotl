@@ -77,6 +77,12 @@
     <ImageAsset Include="Assets.xcassets\Dead.imageset\axolotl dead-04.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\exit_icon.imageset\exit_icon.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\gear_icon.imageset\gear_icon.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\Healthy.imageset\AxolotlCharacter1.png">
       <Visible>false</Visible>
     </ImageAsset>
@@ -84,6 +90,12 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\back_icon.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\gear_icon.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\exit_icon.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\Sick.imageset\Axolotl_sick_1.png">

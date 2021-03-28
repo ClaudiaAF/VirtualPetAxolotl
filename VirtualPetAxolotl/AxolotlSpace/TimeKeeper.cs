@@ -7,8 +7,7 @@ namespace VirtualPetAxolotl.AxolotlSpace
 {
     public class TimeKeeper
     {
-        private static Timer timer;
-
+        private Timer Timer { get; set; }
         public TimeKeeper()
         {
             StartTimer();
@@ -16,19 +15,27 @@ namespace VirtualPetAxolotl.AxolotlSpace
 
         private void StartTimer()
         {
-            timer = new Timer();
-            timer.Interval = 1000;
-            timer.Enabled = true;
-            timer.Elapsed += DoomsDayTimer;
-            timer.Start();
+            Timer = new Timer();
+            Timer.Interval = 1000;
+            Timer.Enabled = true;
+            Timer.Elapsed += DoomsDayTimer;
+            Timer.Start();
         }
 
         private void DoomsDayTimer(object sender, ElapsedEventArgs e)
         {
             Axolotl.AxolotlState.Destroy();
+            Axolotl.TankState.Destroy();
             Axolotl.FilterState.Destroy();
             Axolotl.HungerState.Destroy();
-            Axolotl.TankState.Destroy();
+            
+        }
+
+        public void destroyTimer() {
+            if (Timer != null)
+            {
+                Timer.Stop();
+            }
         }
     }
 

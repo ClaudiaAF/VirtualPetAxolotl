@@ -6,25 +6,9 @@ namespace VirtualPetAxolotl.AxolotlSpace
 {
     class Levels
     {
-        public static int GetLevelFromXp(int xp)
+        public static int GetLevelFromXp(int Xp)
         {
-
-            if (xp == 0)
-            {
-                return 0;
-            }
-            else if (xp < 2000)
-            {
-                return 1;
-            }
-            else if (xp >= 2000)
-            {
-                return 2;
-            } else
-            {
-                return 0;
-            }
-
+            return Xp / 1000;
         }
     }
 }

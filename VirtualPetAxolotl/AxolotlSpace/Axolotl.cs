@@ -5,8 +5,29 @@ using VirtualPetAxolotl.StateSpace;
 
 namespace VirtualPetAxolotl.AxolotlSpace { 
     class Axolotl
-    { 
-        public static AxolotlState AxolotlState { get; set; }
+    {
+
+        private const string AxolotlStateKey = "AxolotlStateKey";
+
+        public static AxolotlState AxolotlState
+        {
+            get
+            {
+                if (App.Current.Properties.ContainsKey(AxolotlStateKey))
+                {
+                    return (AxolotlState)App.Current.Properties[AxolotlStateKey];
+                }
+                else
+                {
+                    return new AxolotlState();
+                }
+            }
+
+            set
+            {
+                App.Current.Properties[AxolotlStateKey] = value;
+            }
+        }
         public static HungerState HungerState { get; set; }
         public static TankState TankState { get; set; }
         public static FilterState FilterState { get; set; }
@@ -19,6 +40,7 @@ namespace VirtualPetAxolotl.AxolotlSpace {
             TankState = new TankState();
             FilterState = new FilterState();
             TimeKeeper = new TimeKeeper();
+            Xp = 0;
         }
 
         const string axolotlXpKey = "axolotlXp";
@@ -30,16 +52,16 @@ namespace VirtualPetAxolotl.AxolotlSpace {
             {
                 if (App.Current.Properties.ContainsKey(axolotlXpKey))
                 {
-                    Console.WriteLine((int)App.Current.Properties[axolotlXpKey]);
-                    Xp = (int)App.Current.Properties[axolotlXpKey];
+                    return (int)App.Current.Properties[axolotlXpKey];
                 }
-
-                return Xp;
+                else
+                {
+                    return 0;
+                }
             }
 
             set
             {
-                Xp = value;
                 App.Current.Properties[axolotlXpKey] = value;
             }
         }
@@ -66,26 +88,30 @@ namespace VirtualPetAxolotl.AxolotlSpace {
 
         public static void Feed()
         {
-            /*Xp += 200;*/
+            Xp += 200;            
             HungerState.RestoreDependents(AxolotlState);
+            Dashboard.UpdateXpLevel();
         }
 
         public static void GiveAttention()
         {
-            /*Xp += 500;*/
+            Xp += 500;
             AxolotlState.Restore();
+            Dashboard.UpdateXpLevel();
         }
 
         public static void ReplaceFitler()
         {
-            /*Xp += 400;*/
+            Xp += 400;
             FilterState.RestoreDependents(TankState, AxolotlState);
+            Dashboard.UpdateXpLevel();
         }
 
         public static void CleanTank()
         {
-            /*Xp += 300;*/
+            Xp += 300;
             TankState.RestoreDependents(AxolotlState);
+            Dashboard.UpdateXpLevel();
         }
     }
 }
