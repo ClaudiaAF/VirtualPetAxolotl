@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="VirtualPetAxolotl.ReplaceFilter"
+             BackgroundColor="ForestGreen">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand"
+                     HorizontalOptions="Center">
+            <Image Source="droplet"
+                   VerticalOptions="Center"
+                   HorizontalOptions="CenterAndExpand"
+                   xct:TouchEffect.AnimationDuration="250"
+                     xct:TouchEffect.PressedScale="0.75"
+                     xct:TouchEffect.PressedOpacity="0.6"
+                   xct:TouchEffect.LongPressDuration="3000">
+                <Image.GestureRecognizers>
+                    <DragGestureRecognizer CanDrag="True" 
+                                           />
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Image Source="filter"
+                   HorizontalOptions="End"
+                   Margin="0,0,0,0">
+                <Image.GestureRecognizers>
+                    <DropGestureRecognizer
+                        x:Name="dropped"
+                        AllowDrop="True" />
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
