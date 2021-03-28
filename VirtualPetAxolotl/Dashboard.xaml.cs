@@ -17,7 +17,6 @@ namespace VirtualPetAxolotl
     public partial class Dashboard : ContentPage
     {
         public static Dashboard Current;
-        private Axolotl axolotl = new Axolotl();
 
         public Dashboard()
         {
@@ -81,7 +80,9 @@ namespace VirtualPetAxolotl
             if (Axolotl.FilterState.CurrentStateType == FilterStateType.Dirty)
             {
                 Current.needIcon.FadeTo(1, 700, Easing.BounceIn);
+
             }
+            Current.xpProgBarFilter.ProgressTo(Axolotl.FilterState.HP / 100.0, 1000, Easing.Linear);
         }
 
         async void EditNameTapped(object sender, EventArgs e)
@@ -96,7 +97,7 @@ namespace VirtualPetAxolotl
 
         void OnTapGestureRecognizerTapped(object sender, EventArgs args)
         {
-            axolotl.GiveAttention();
+            Axolotl.GiveAttention();
         }
        
         private void AxolotlDead()
@@ -122,18 +123,19 @@ namespace VirtualPetAxolotl
 
         void feedAxolotlTapped(System.Object sender, System.EventArgs e)
         {
-            axolotl.Feed();
+            Axolotl.Feed();
         }
 
-        public void OnDrop(object sender, DropEventArgs e)
+
+        public void OnDragOver(object sender, DropEventArgs e)
         {
-            axolotl.ReplaceFitler();
+            Axolotl.ReplaceFitler();
 
         }
 
         void Handle_SlideCompleted(object sender, System.EventArgs e)
         {
-            axolotl.CleanTank();
+            Axolotl.CleanTank();
 
             MessageLbl.Text = "All Clean";
             MessageLbl.Opacity = 1;

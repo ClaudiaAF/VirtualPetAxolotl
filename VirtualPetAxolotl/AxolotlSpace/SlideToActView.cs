@@ -59,7 +59,7 @@ namespace VirtualPetAxolotl.AxolotlSpace
         public event EventHandler SlideCompleted;
 
         private const double _fadeEffect = 0.5;
-        private const uint _animLength = 50;
+        private const uint _animLength = 60;
 
 
         async void OnPanGestureUpdated(object sender, PanUpdatedEventArgs e)

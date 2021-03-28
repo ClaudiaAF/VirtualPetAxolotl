@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VirtualPetAxolotl.AxolotlSpace;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -17,14 +18,11 @@ namespace VirtualPetAxolotl
             InitializeComponent();
         }
 
-        /*public void OnDrop(object sender, DropEventArgs e)
+        async void backToDashboard(object sender, EventArgs e)
         {
-            RestartReplaceFilterTimer();
+            await Navigation.PushModalAsync(new Dashboard());
+        }
 
-            axolotl.replaceFitler();
-
-            updateFilterUI();
-
-        }*/
+        
     }
 }

@@ -64,25 +64,25 @@ namespace VirtualPetAxolotl.AxolotlSpace {
             }
         }
 
-        public void Feed()
+        public static void Feed()
         {
             /*Xp += 200;*/
             HungerState.RestoreDependents(AxolotlState);
         }
 
-        public void GiveAttention()
+        public static void GiveAttention()
         {
             /*Xp += 500;*/
             AxolotlState.Restore();
         }
 
-        public void ReplaceFitler()
+        public static void ReplaceFitler()
         {
             /*Xp += 400;*/
             FilterState.RestoreDependents(TankState, AxolotlState);
         }
 
-        public void CleanTank()
+        public static void CleanTank()
         {
             /*Xp += 300;*/
             TankState.RestoreDependents(AxolotlState);

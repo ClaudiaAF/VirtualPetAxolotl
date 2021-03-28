@@ -44,19 +44,36 @@
                 ProgressColor="Blue" 
                 MinimumWidthRequest="200"/>
 
+        <ProgressBar 
+                x:Name="xpProgBarFilter"
+                Progress="0.2" 
+                ProgressColor="Red" 
+                MinimumWidthRequest="200"/>
 
-        <ImageButton 
-                HorizontalOptions="End"
-                     Source="filter_icon"
-                     BackgroundColor="Transparent"
-                     HeightRequest="100"
-                     Clicked="ReplaceFilterPage"
-                     xct:TouchEffect.AnimationDuration="250"
+        <Image Source="droplet"
+               HorizontalOptions="End"
+               HeightRequest="100"
+               Margin="0,0,19,0"
+                   xct:TouchEffect.AnimationDuration="250"
                      xct:TouchEffect.PressedScale="0.75"
                      xct:TouchEffect.PressedOpacity="0.6"
-                     >
-        </ImageButton>
-        
+                   xct:TouchEffect.LongPressDuration="3000">
+            <Image.GestureRecognizers>
+                <DragGestureRecognizer CanDrag="True" />
+            </Image.GestureRecognizers>
+        </Image>
+
+        <Image Source="filter"
+                   HorizontalOptions="End"
+               HeightRequest="100"
+                   Margin="0,10,19,10">
+            <Image.GestureRecognizers>
+                <DropGestureRecognizer
+                        x:Name="dropped"
+                        AllowDrop="True"
+                        DragOver="OnDragOver"/>
+            </Image.GestureRecognizers>
+        </Image>
         <ImageButton x:Name="feedIcon"
                      HorizontalOptions="End"
                      Source="feed_icon"
@@ -67,12 +84,14 @@
                      xct:TouchEffect.PressedScale="0.75"
                      xct:TouchEffect.PressedOpacity="0.6"
                      />
+
+        
         <Image x:Name="axolotlImage"
                Source="Axolotl_nothealthy_1"
                HorizontalOptions="CenterAndExpand"
                VerticalOptions="CenterAndExpand"
                HeightRequest="360"
-               Margin="0, -250, 100, 0"
+               Margin="0, -350, 100, 0"
                xct:TouchEffect.AnimationDuration="250"
                      xct:TouchEffect.PressedScale="0.75"
                      xct:TouchEffect.PressedOpacity="0.6">
@@ -89,11 +108,13 @@
             <axolotlspace:SlideToActView HeightRequest="60"
                                    SlideCompleted="Handle_SlideCompleted">
 
-                <axolotlspace:SlideToActView.Thumb>
+                <axolotlspace:SlideToActView.Thumb
+                    >
                     <Frame CornerRadius="15"
-                       HasShadow="false" 
+                       HasShadow="true" 
                        BackgroundColor="Transparent" 
-                       Padding="0">
+                       Padding="0"
+                           WidthRequest="50">
                         <Image Source="clean_icon"
                            HorizontalOptions="Center" 
                            VerticalOptions="Center" 
@@ -125,6 +146,8 @@
             <Label x:Name="MessageLbl" 
                FontAttributes="Italic" 
                TextColor="White" />
+
+            
 
         </StackLayout>
 
