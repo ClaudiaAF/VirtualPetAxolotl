@@ -3,10 +3,9 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using VirtualPetAxolotl.Objects1;
 using Xamarin.Forms;
 
-namespace VirtualPetAxolotl.Objects1
+namespace VirtualPetAxolotl.AxolotlSpace
 {
     public class SlideToActView : AbsoluteLayout
     {

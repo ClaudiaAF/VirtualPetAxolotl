@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace VirtualPetAxolotl.NewFolder1
+namespace VirtualPetAxolotl.AxolotlSpace
 {
     class Levels
     {
         public static int GetLevelFromXp(int xp)
         {
+
             if (xp == 0)
             {
                 return 0;
