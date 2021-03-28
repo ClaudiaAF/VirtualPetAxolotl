@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VirtualPetAxolotl.Objects1;
-using VirtualPetAxolotl.NewFolder1;
+using VirtualPetAxolotl.StateSpace;
+using VirtualPetAxolotl.AxolotlSpace;
 using VirtualPetAxolotl;
 using System.Timers;
 
@@ -16,155 +16,128 @@ namespace VirtualPetAxolotl
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Dashboard : ContentPage
     {
+        public static Dashboard Current;
+        private Axolotl axolotl = new Axolotl();
 
-        private  Axolotl axolotl = new Axolotl();
-
-        void updateUI()
-        {
-            int axolotlXp = axolotl.Xp;
-
-            if (axolotlXp < 1)
-            {
-                levelLabel.Text = "Not being cared for";
-                xpLabel.Text = "tap the plant to feed your Axolotl";
-            } 
-            else
-            {
-                levelLabel.Text = "Level 1" + Levels.GetLevelFromXp(axolotlXp).ToString();
-                xpLabel.Text = axolotlXp.ToString();
-            }
-
-
-
-            Device.BeginInvokeOnMainThread(async () =>
-            {
-                axolotlImage.Source = "Axolotl_" + axolotl.CurrentAxolotlState + "_" + (Levels.GetLevelFromXp(axolotlXp) + 1).ToString();
-
-                if (axolotl.CurrentAxolotlState == AxolotlState.sick)
-                {
-                    AxolotlDead();
-
-                } else if (axolotl.CurrentAxolotlState == AxolotlState.nothealthy) {
-
-                    DisplayAlert("Lovesick", "Your Axolotl is missing you! Double tap on your pets tummy to remind him you're here", "Give Attention");
-                    needIcon.Opacity = 0;
-                    await needIcon.FadeTo(1, 2000);
-                    await needIcon.FadeTo(0, 2000);
-                }
-            });
-        }
-
-
-
-        
         public Dashboard()
         {
             InitializeComponent();
+            Current = this;
+            Axolotl.Init();
+            axolotlImage.Source = Axolotl.AxolotlState.CurrentStateType.ToString();
+        }
 
-            updateUI();
-            StartTimer();
+        public static void UpdateAxolotlImage()
+        {
+            Current.axolotlImage.Source = Axolotl.AxolotlState.CurrentStateType.ToString();
 
+            if (Axolotl.AxolotlState.CurrentStateType == AxolotlStateType.Dead)
+            {
+                Current.AxolotlDead();
+            }
+        }
 
+        public static void UpdateXpLevel()
+        {
+            int axolotlXp = Axolotl.Xp;
+
+            if (axolotlXp < 1)
+            {
+                Current.levelLabel.Text = "Not being cared for";
+                Current.xpLabel.Text = "tap the plant to feed your Axolotl";
+            }
+            else
+            {
+                Current.levelLabel.Text = "Level " + Levels.GetLevelFromXp(axolotlXp).ToString();
+                Current.xpLabel.Text = axolotlXp.ToString();
+            }
+        }
+
+        public static void UpdateAxolotlHpBar()
+        {
+            Current.xpProgBar.ProgressTo(Axolotl.AxolotlState.HP / 100.0, 1000, Easing.Linear);
+        }
+
+        public static void UpdateHungerHpBar()
+        {
+            if (Axolotl.HungerState.CurrentStateType == HungerStateType.Hungry)
+            {
+                Current.needIcon.FadeTo(1, 700, Easing.BounceIn);
+            }
+        }
+
+        public static void UpdateTankHpBar()
+        {
+            if (Axolotl.TankState.CurrentStateType == TankStateType.Unclean)
+            {
+                Current.needIcon.FadeTo(1, 700, Easing.BounceIn);
+            }
+
+            Current.xpProgBarClean.ProgressTo(Axolotl.TankState.HP / 100.0, 1000, Easing.Linear);
+        }
+
+        public static void UpdateFitlerHpBar()
+        {
+            if (Axolotl.FilterState.CurrentStateType == FilterStateType.Dirty)
+            {
+                Current.needIcon.FadeTo(1, 700, Easing.BounceIn);
+            }
+        }
+
+        async void EditNameTapped(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new EnterNamePage());
+        }
+
+        async void ReplaceFilterPage(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new ReplaceFilter());
+        }
+
+        void OnTapGestureRecognizerTapped(object sender, EventArgs args)
+        {
+            axolotl.GiveAttention();
+        }
+       
+        private void AxolotlDead()
+        {
+            try
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    bool answer = await Current.DisplayAlert("Dead", "Your Axolotl has died", "New Axolotl?", "Nah");
+
+                    if (answer)
+                    {
+                        Axolotl.Init();
+                    }
+                });
+                    
+            } catch (Exception ex)
+            {
+                Console.Write(ex.StackTrace);
+            }
         }
 
 
         void feedAxolotlTapped(System.Object sender, System.EventArgs e)
         {
-            RestartTimer();
-
-            axolotl.giveFood();
-
-            updateUI();
+            axolotl.Feed();
         }
-        void OnTapGestureRecognizerTapped(object sender, EventArgs args)
+
+        public void OnDrop(object sender, DropEventArgs e)
         {
-            RestartTimer();
+            axolotl.ReplaceFitler();
 
-            axolotl.giveAttention();
-
-            updateUI();
         }
+
         void Handle_SlideCompleted(object sender, System.EventArgs e)
         {
-            RestartTimer();
+            axolotl.CleanTank();
 
-            axolotl.cleanTank();
-
-            updateUI();
             MessageLbl.Text = "All Clean";
             MessageLbl.Opacity = 1;
             MessageLbl.FadeTo(0, 1000);
-
-        }
-
-
-        private async void AxolotlDead()
-        {
-            await DisplayAlert("Dead", "Your Axolotl has died", "New Axolotl");
-
-            axolotl.Xp = 0;
-            axolotl.CurrentAxolotlState = AxolotlState.healthy;
-            RestartTimer();
-
-            updateUI();
-        }
-
-
-        private Timekeeper timekeeper = new Timekeeper();
-
-        private static Timer timer;
-
-        private void StartTimer()
-        {
-            timer = new Timer();
-
-            timer.Interval = 1000;
-            timer.Enabled = true;
-            timer.Elapsed += UpdateTimedData;
-            timer.Start();
-        }
-
-        private void RestartTimer()
-        {
-            timekeeper.StartTime = DateTime.Now;
-
-            StartTimer();
-        }
-
-        private void UpdateTimedData(object sender, ElapsedEventArgs e)
-        {
-            TimeSpan timeElapsed = e.SignalTime - timekeeper.StartTime;
-
-            AxolotlState newAxolotlState = axolotl.CurrentAxolotlState;
-
-             if (timeElapsed.TotalSeconds == 15)
-            {
-                needIcon.Opacity = 0;
-                needIcon.FadeTo(1, 2000);
-            }
-            else if (timeElapsed.TotalSeconds < 20)
-            {
-                newAxolotlState = AxolotlState.healthy;
-            }
-            else if (timeElapsed.TotalSeconds < 30)
-            {
-                newAxolotlState = AxolotlState.nothealthy;
-            }
-            else if (timeElapsed.TotalSeconds >= 40)
-            {
-                newAxolotlState = AxolotlState.sick;
-            }
-
-            if (newAxolotlState != axolotl.CurrentAxolotlState)
-            {
-                axolotl.CurrentAxolotlState = newAxolotlState;
-                updateUI();
-            }
-
-            
         }
     }
-
-    //swipe to clean function
-    
 }

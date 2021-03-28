@@ -1,36 +1,82 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local2="clr-namespace:VirtualPetAxolotl.Objects1"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="VirtualPetAxolotl.Dashboard"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" xmlns:axolotlspace="clr-namespace:VirtualPetAxolotl.AxolotlSpace"
              BackgroundImageSource="Dashboard" >
-
-
     <StackLayout >
 
-        <Button Text="my Axolotl"
-                x:Name="axolotlNameButton" 
-                BackgroundColor="Transparent"
-                TextColor="White"
-                >
-            
-        </Button>
+        <Button Text="My Axolotl"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    TextColor="#ffff"
+                    BackgroundColor="Transparent"
+                    Clicked="EditNameTapped"
+                    x:Name="axolotlNameButton" />
+        
         <Label x:Name="levelLabel" 
             Text="Level 1"
               TextColor="White" 
+               FontAttributes="Bold"
+               FontSize="38"
                HorizontalTextAlignment="Center"
                Margin="10"></Label>
+
 
         <Label x:Name="xpLabel"
             Text="1000xp"
                TextColor="White"
+               FontSize="18"
+               FontAttributes="Italic"
                HorizontalTextAlignment="Center"></Label>
+
+            <ProgressBar 
+                x:Name="xpProgBar"
+                Progress="0.2" 
+                ProgressColor="Orange" 
+                MinimumWidthRequest="200"/>
         
+        <ProgressBar 
+                x:Name="xpProgBarClean"
+                Progress="0.2" 
+                ProgressColor="Blue" 
+                MinimumWidthRequest="200"/>
+
+
+        <ImageButton 
+                HorizontalOptions="End"
+                     Source="filter_icon"
+                     BackgroundColor="Transparent"
+                     HeightRequest="100"
+                     Clicked="ReplaceFilterPage"
+                     xct:TouchEffect.AnimationDuration="250"
+                     xct:TouchEffect.PressedScale="0.75"
+                     xct:TouchEffect.PressedOpacity="0.6"
+                     >
+        </ImageButton>
+        
+        <ImageButton x:Name="feedIcon"
+                     HorizontalOptions="End"
+                     Source="feed_icon"
+                     BackgroundColor="Transparent"
+                     HeightRequest="100"
+                     Clicked="feedAxolotlTapped"
+                     xct:TouchEffect.AnimationDuration="250"
+                     xct:TouchEffect.PressedScale="0.75"
+                     xct:TouchEffect.PressedOpacity="0.6"
+                     />
         <Image x:Name="axolotlImage"
                Source="Axolotl_nothealthy_1"
                HorizontalOptions="CenterAndExpand"
                VerticalOptions="CenterAndExpand"
-               HeightRequest="360">
-            
+               HeightRequest="360"
+               Margin="0, -250, 100, 0"
+               xct:TouchEffect.AnimationDuration="250"
+                     xct:TouchEffect.PressedScale="0.75"
+                     xct:TouchEffect.PressedOpacity="0.6">
+
             <Image.GestureRecognizers>
                 <TapGestureRecognizer
                 Tapped="OnTapGestureRecognizerTapped"
@@ -39,11 +85,11 @@
             </Image.GestureRecognizers>
         </Image>
 
-        <StackLayout Margin="20">
-            <local2:SlideToActView HeightRequest="60"
+        <StackLayout Margin="5">
+            <axolotlspace:SlideToActView HeightRequest="60"
                                    SlideCompleted="Handle_SlideCompleted">
-                
-                <local2:SlideToActView.Thumb>
+
+                <axolotlspace:SlideToActView.Thumb>
                     <Frame CornerRadius="15"
                        HasShadow="false" 
                        BackgroundColor="Transparent" 
@@ -52,70 +98,51 @@
                            HorizontalOptions="Center" 
                            VerticalOptions="Center" 
                            HeightRequest="85" 
-                           WidthRequest="85" />
+                           WidthRequest="85"
+                               />
                     </Frame>
-                </local2:SlideToActView.Thumb>
+                </axolotlspace:SlideToActView.Thumb>
 
-                <local2:SlideToActView.TrackBar>
+                <axolotlspace:SlideToActView.TrackBar>
                     <Frame CornerRadius="15" 
                        HasShadow="false" 
                        BackgroundColor="#498D88" 
-                       Padding="0">
-                        <Label Text="Slide 'x' to clean" 
+                       Padding="20">
+                        <Label Text="Swipe right to clean the tank" 
                            HorizontalOptions="CenterAndExpand" 
                            VerticalOptions="CenterAndExpand"
                                TextColor="White"/>
                     </Frame>
-                </local2:SlideToActView.TrackBar>
+                </axolotlspace:SlideToActView.TrackBar>
 
-                <local2:SlideToActView.FillBar>
+                <axolotlspace:SlideToActView.FillBar>
                     <Frame CornerRadius="15" 
                        HasShadow="false" 
-                       BackgroundColor="ForestGreen" 
+                       BackgroundColor="LightBlue" 
                        Padding="0" />
-                </local2:SlideToActView.FillBar>
-            </local2:SlideToActView>
+                </axolotlspace:SlideToActView.FillBar>
+            </axolotlspace:SlideToActView>
             <Label x:Name="MessageLbl" 
                FontAttributes="Italic" 
                TextColor="White" />
+
         </StackLayout>
 
         <FlexLayout AlignItems="Center">
+            
+            
 
-                
-                <ImageButton x:Name="feedIcon"
-                     Source="feed_icon"
-                     BackgroundColor="Transparent"
-                     HeightRequest="100"
-                     Margin="0 0 20 20" 
-                     Clicked="feedAxolotlTapped"
-                     >
-                
-            </ImageButton>
             <Image x:Name="needIcon"
-               Source="need_icon"
+               Source="needs_icon"
                HeightRequest="50"
-               Margin="20 20 50 0"
-                   Opacity="1"/>
-
-            <ImageButton 
-                     Source="filter_icon"
-                     BackgroundColor="Transparent"
-                     HeightRequest="100"
-                     Margin="5 5 20 10" 
-                     >
-            </ImageButton>
-
+                   Opacity="0"/>
 
             <Image x:Name="needIcon_filter"
-               Source="need_icon"
+               Source="needs_icon"
                HeightRequest="50"
-               Margin="20 20 50 1"
-                   Opacity="1"/>
+                   Opacity="0"/>
         </FlexLayout>
 
     </StackLayout>
-    
-    
-    
+
 </ContentPage>

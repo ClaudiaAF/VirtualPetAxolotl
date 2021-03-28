@@ -11,10 +11,11 @@
             <Button Text="Meet your new pet"
                     HorizontalOptions="Center"
                     VerticalOptions="CenterAndExpand"
-                    TextColor="AntiqueWhite"
+                    TextColor="#498D88"
                     FontSize="18"
+                    Padding="20"
                     FontAttributes="Bold"
-                    BackgroundColor="Transparent"
+                    BackgroundColor="#ffff"
                     Clicked="MeetPetClicked"></Button>
 
         </StackLayout>
