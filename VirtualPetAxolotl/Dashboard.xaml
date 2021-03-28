@@ -42,6 +42,22 @@
                HorizontalTextAlignment="Center"
                Margin="10"></Label>
 
+        <ImageButton
+            HorizontalOptions="End"
+            BackgroundColor="Transparent"
+            Source="water_cold"
+            Clicked="TouchCommand"
+            WidthRequest="70"
+            HeightRequest="70"
+            Margin="0,-90,10,0"
+            xct:TouchEffect.AnimationDuration="250"
+                     xct:TouchEffect.PressedScale="0.75"
+                     xct:TouchEffect.PressedOpacity="0.6"
+                     xct:TouchEffect.LongPressDuration="1000"
+                     xct:TouchEffect.LongPressCommand="{Binding TouchCommand}">
+            
+        </ImageButton>
+
 
         <Label x:Name="xpLabel"
             Text="1000xp"
@@ -50,23 +66,56 @@
                FontAttributes="Italic"
                HorizontalTextAlignment="Center"></Label>
 
-            <ProgressBar 
+        <ProgressBar 
                 x:Name="xpProgBar"
                 Progress="0.2" 
                 ProgressColor="Orange" 
+            Margin="6,0,0,10"
                 MinimumWidthRequest="200"/>
+
+        <Image Source="Healthy"
+               HeightRequest="40"
+               Margin="0,-45,0,0"
+               HorizontalOptions="Start"></Image>
         
+
+        <ProgressBar 
+                x:Name="xpProgBarHunger"
+                Progress="0.2" 
+                ProgressColor="DarkSeaGreen" 
+            Margin="6,5,0,0"
+                MinimumWidthRequest="200"/>
+
+        <Image Source="feed_icon"
+               HeightRequest="40"
+               Margin="0,-30,0,0"
+               HorizontalOptions="Start"></Image>
+
         <ProgressBar 
                 x:Name="xpProgBarClean"
                 Progress="0.2" 
                 ProgressColor="Blue" 
-                MinimumWidthRequest="200"/>
+                WidthRequest="100"
+               Margin="6,8,0,0"
+            HeightRequest="20"
+            />
+
+        <Image Source="clean_icon"
+               HeightRequest="35"
+               Margin="2,-38,0,0"
+               HorizontalOptions="Start"></Image>
 
         <ProgressBar 
                 x:Name="xpProgBarFilter"
                 Progress="0.2" 
+            Margin="12,13,0,0"
                 ProgressColor="Red" 
                 MinimumWidthRequest="200"/>
+        
+        <Image Source="droplet"
+               HeightRequest="35"
+               Margin="10,-35,0,0"
+               HorizontalOptions="Start"></Image>
 
         <Image Source="droplet"
                HorizontalOptions="End"
@@ -96,7 +145,8 @@
                      HorizontalOptions="End"
                      Source="feed_icon"
                      BackgroundColor="Transparent"
-                     HeightRequest="100"
+                     HeightRequest="80"
+                     Margin="0,1,10,0"
                      Clicked="feedAxolotlTapped"
                      xct:TouchEffect.AnimationDuration="250"
                      xct:TouchEffect.PressedScale="0.75"
@@ -108,8 +158,8 @@
                Source="Axolotl_nothealthy_1"
                HorizontalOptions="CenterAndExpand"
                VerticalOptions="CenterAndExpand"
-               HeightRequest="360"
-               Margin="0, -350, 100, 0"
+               HeightRequest="320"
+               Margin="0, -340, 100, 0"
                xct:TouchEffect.AnimationDuration="250"
                      xct:TouchEffect.PressedScale="0.75"
                      xct:TouchEffect.PressedOpacity="0.6">
@@ -124,6 +174,8 @@
 
         <StackLayout Margin="5">
             <axolotlspace:SlideToActView HeightRequest="60"
+                                         WidthRequest="100"
+                                        Margin="0,7,0,0"
                                    SlideCompleted="Handle_SlideCompleted">
 
                 <axolotlspace:SlideToActView.Thumb
@@ -131,8 +183,7 @@
                     <Frame CornerRadius="15"
                        HasShadow="true" 
                        BackgroundColor="Transparent" 
-                       Padding="0"
-                           WidthRequest="50">
+                       Padding="0">
                         <Image Source="clean_icon"
                            HorizontalOptions="Center" 
                            VerticalOptions="Center" 
@@ -146,6 +197,7 @@
                     <Frame CornerRadius="15" 
                        HasShadow="false" 
                        BackgroundColor="#498D88" 
+                           
                        Padding="20">
                         <Label Text="Swipe right to clean the tank" 
                            HorizontalOptions="CenterAndExpand" 
@@ -165,24 +217,12 @@
                FontAttributes="Italic" 
                TextColor="White" />
 
-            
+            <ImageButton x:Name="waterClean"
+                         BackgroundColor="Blue">
+                
+            </ImageButton>
 
         </StackLayout>
-
-        <FlexLayout AlignItems="Center">
-            
-            
-
-            <Image x:Name="needIcon"
-               Source="needs_icon"
-               HeightRequest="50"
-                   Opacity="0"/>
-
-            <Image x:Name="needIcon_filter"
-               Source="needs_icon"
-               HeightRequest="50"
-                   Opacity="0"/>
-        </FlexLayout>
 
     </StackLayout>
 

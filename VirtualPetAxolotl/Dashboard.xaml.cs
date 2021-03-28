@@ -66,29 +66,17 @@ namespace VirtualPetAxolotl
 
         public static void UpdateHungerHpBar()
         {
-            if (Axolotl.HungerState.CurrentStateType == HungerStateType.Hungry)
-            {
-                Current.needIcon.FadeTo(1, 700, Easing.BounceIn);
-            }
+            Current.xpProgBarHunger.ProgressTo(Axolotl.HungerState.HP / 100.0, 1000, Easing.Linear);
         }
 
         public static void UpdateTankHpBar()
         {
-            if (Axolotl.TankState.CurrentStateType == TankStateType.Unclean)
-            {
-                Current.needIcon.FadeTo(1, 700, Easing.BounceIn);
-            }
 
             Current.xpProgBarClean.ProgressTo(Axolotl.TankState.HP / 100.0, 1000, Easing.Linear);
         }
 
         public static void UpdateFitlerHpBar()
         {
-            if (Axolotl.FilterState.CurrentStateType == FilterStateType.Dirty)
-            {
-                Current.needIcon.FadeTo(1, 700, Easing.BounceIn);
-
-            }
             Current.xpProgBarFilter.ProgressTo(Axolotl.FilterState.HP / 100.0, 1000, Easing.Linear);
         }
 
@@ -102,7 +90,12 @@ namespace VirtualPetAxolotl
         {
             Axolotl.GiveAttention();
         }
-       
+
+        void TouchCommand(object sender, EventArgs args)
+        {
+            Axolotl.WaterCold();
+        }
+
         private void AxolotlDead()
         {
             try
@@ -120,12 +113,15 @@ namespace VirtualPetAxolotl
 
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-                    bool answer = await Current.DisplayAlert("Dead", "Your Axolotl has died", "New Axolotl?", "Nah");
+                    bool answer = await Current.DisplayAlert("Dead", "Your Axolotl has died", "New Axolotl?", "Cancel");
 
                     if (answer)
                     {
                         Axolotl.Init();
                         axolotlImage.Source = Axolotl.AxolotlState.CurrentStateType.ToString();
+                        Current.levelLabel.Text = "Not being cared for";
+                        Current.xpLabel.Text = "tap the plant to feed your Axolotl";
+
                     }
                 });
                     

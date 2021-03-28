@@ -100,6 +100,13 @@ namespace VirtualPetAxolotl.AxolotlSpace {
             Dashboard.UpdateXpLevel();
         }
 
+        public static void WaterCold()
+        {
+            Xp += 500;
+            AxolotlState.Restore();
+            Dashboard.UpdateXpLevel();
+        }
+
         public static void ReplaceFitler()
         {
             Xp += 400;

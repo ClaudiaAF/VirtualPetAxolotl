@@ -98,6 +98,9 @@
     <ImageAsset Include="Assets.xcassets\exit_icon.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\water_cold.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\Sick.imageset\Axolotl_sick_1.png">
       <Visible>false</Visible>
     </ImageAsset>
@@ -174,6 +177,9 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\StaticDash.imageset\StaticDash.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\water_cold.imageset\water_cold.png">
       <Visible>false</Visible>
     </ImageAsset>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
