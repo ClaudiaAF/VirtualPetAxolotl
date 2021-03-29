@@ -23,6 +23,15 @@ namespace VirtualPetAxolotl
             await Navigation.PushModalAsync(new Dashboard());
         }
 
-        
+        async void rename_pet(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new EnterNamePage());
+        }
+
+        async void help_tapped(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new HelpPage());
+        }
+
     }
 }

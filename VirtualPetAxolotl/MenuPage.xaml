@@ -25,10 +25,14 @@
                 Color="white">
             </BoxView>
             
-            <Button x:Name="Rename"
-                   Text="Rename Your Pet"
+            <Button x:Name="ResetyourPet"
+                    Clicked="rename_pet"
+                   Text="Reset Your Pet"
                     BackgroundColor="Transparent"
-                    TextColor="White">                                
+                    TextColor="White"
+                     xct:TouchEffect.AnimationDuration="250"
+                     xct:TouchEffect.PressedScale="0.75"
+                     xct:TouchEffect.PressedOpacity="0.6">                                
             </Button>
             
             <BoxView
@@ -38,8 +42,12 @@
 
             <Button x:Name="Help"
                    Text="Help"
+                    Clicked="help_tapped"
                    BackgroundColor="Transparent"
-                    TextColor="White">
+                    TextColor="White"
+                     xct:TouchEffect.AnimationDuration="250"
+                     xct:TouchEffect.PressedScale="0.75"
+                     xct:TouchEffect.PressedOpacity="0.6">
             </Button>
 
             <BoxView

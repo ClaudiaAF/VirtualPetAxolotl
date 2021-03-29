@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="VirtualPetAxolotl.HelpPage"
+             BackgroundColor="#317777">
+    
+    <ContentPage.Content>
+        <ScrollView HeightRequest="5000">
+        
+        <StackLayout>
+
+            <ImageButton Clicked="exit_help"
+                         Source="exit_icon"
+                         VerticalOptions="Start"
+                         HorizontalOptions="StartAndExpand"
+                         BackgroundColor="Transparent"
+                          xct:TouchEffect.AnimationDuration="250"
+                     xct:TouchEffect.PressedScale="0.75"
+                     xct:TouchEffect.PressedOpacity="0.6"
+                         Margin="30">
+
+            </ImageButton>
+            <Label Text="Let's Get You Started"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="Start" 
+                   FontSize="Header"
+                   Margin="20,0,0,40"/>
+
+            <Image Source="feed_icon"
+                   HeightRequest="80"
+                   VerticalOptions="Start"
+                   HorizontalOptions="CenterAndExpand"
+                    Margin="10"
+                   >
+            </Image>
+
+            <Label Text="To start feeding your pet, simply tap the plant icon and your pet's HP will increase and keep him alive"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="Start"
+                   FontSize="Body"
+                   Padding="20"/>
+
+                <Image Source="clean_icon"
+                   HeightRequest="80"
+                   VerticalOptions="Start"
+                   HorizontalOptions="CenterAndExpand"
+                   Margin="10"
+                   >
+                </Image>
+
+                <Label Text="Swipe the clean bar to ensure the tank is clean at all times!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="Start"
+                   FontSize="Body"
+                       Padding="20"/>
+
+                <Image Source="droplet"
+                   HeightRequest="80"
+                   VerticalOptions="Start"
+                   HorizontalOptions="CenterAndExpand"
+                        
+                   >
+                </Image>
+
+                <Label Text="To ensure the tank stays clean for longer, regularly replace the water filter and you won't have to clean the tank as often."
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="Start"
+                   FontSize="Body"
+                       Padding="20"/>
+
+                <Image Source="water_cold"
+                   HeightRequest="80"
+                   VerticalOptions="Start"
+                   HorizontalOptions="CenterAndExpand"
+                        Margin="10"
+                   >
+                </Image>
+
+                <Label Text="For extra HP, tap and hold on the cold icon to keep the water cold for a comfy environment for your pet!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="Start"
+                Padding="20"
+                   FontSize="Body"/>
+             <Image Source="Healthy"
+                   HeightRequest="80"
+                   VerticalOptions="Start"
+                     Margin="10"
+                   HorizontalOptions="CenterAndExpand"
+                   >
+            </Image>
+
+                <Label Text="For a little extra attention and HP, double tap on the axolotl to rub his tummy and let him know you love him"
+                VerticalOptions="CenterAndExpand" 
+                   FontSize="Body"
+                       HorizontalOptions="Center"
+                   Padding="20"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
