@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="VirtualPetAxolotl.MainPage"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              BackgroundImage="BackgroundImage">
 
     <StackLayout>
@@ -16,7 +17,12 @@
                     Padding="20"
                     FontAttributes="Bold"
                     BackgroundColor="#ffff"
-                    Clicked="MeetPetClicked"></Button>
+                    Clicked="MeetPetClicked"
+                    xct:TouchEffect.AnimationDuration="250"
+                     xct:TouchEffect.PressedScale="0.75"
+                     xct:TouchEffect.PressedOpacity="0.6">
+                
+            </Button>
 
         </StackLayout>
     </StackLayout>
