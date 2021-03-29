@@ -25,10 +25,10 @@
 
         <Label Text="My Axolotl"
                     HorizontalOptions="Center"
-                    VerticalOptions="CenterAndExpand"
+                    VerticalOptions="StartAndExpand"
                     FontAttributes="Bold"
                     FontSize="18"
-                Margin="0,-55,0,0"
+               Margin="0,-40,0,0"
                     TextColor="#ffff"
                     BackgroundColor="Transparent"
                     x:Name="axolotlNameLabel" />
@@ -39,23 +39,9 @@
                FontAttributes="Bold"
                FontSize="38"
                HorizontalTextAlignment="Center"
-               Margin="10"></Label>
+               Margin="0,-150,0,0"></Label>
 
-        <ImageButton
-            HorizontalOptions="End"
-            BackgroundColor="Transparent"
-            Source="water_cold"
-            Clicked="TouchCommand"
-            WidthRequest="70"
-            HeightRequest="70"
-            Margin="0,-90,10,0"
-            xct:TouchEffect.AnimationDuration="250"
-                     xct:TouchEffect.PressedScale="0.75"
-                     xct:TouchEffect.PressedOpacity="0.6"
-                     xct:TouchEffect.LongPressDuration="1000"
-                     xct:TouchEffect.LongPressCommand="{Binding TouchCommand}">
-            
-        </ImageButton>
+        
 
 
         <Label x:Name="xpLabel"
@@ -68,7 +54,7 @@
         <ProgressBar 
                 x:Name="xpProgBar"
                 Progress="0.2" 
-                ProgressColor="Orange" 
+                ProgressColor="#F3A8C7" 
             Margin="6,0,0,10"
                 MinimumWidthRequest="200"/>
 
@@ -93,7 +79,7 @@
         <ProgressBar 
                 x:Name="xpProgBarClean"
                 Progress="0.2" 
-                ProgressColor="Blue" 
+                ProgressColor="#00A8A8" 
                 WidthRequest="100"
                Margin="6,8,0,0"
             HeightRequest="20"
@@ -108,7 +94,7 @@
                 x:Name="xpProgBarFilter"
                 Progress="0.2" 
             Margin="12,13,0,0"
-                ProgressColor="Red" 
+                ProgressColor="#fff" 
                 MinimumWidthRequest="200"/>
         
         <Image Source="droplet"
@@ -140,25 +126,31 @@
                         Drop="OnDrop"/>
             </Image.GestureRecognizers>
         </Image>
-        <ImageButton x:Name="feedIcon"
-                     HorizontalOptions="End"
-                     Source="feed_icon"
-                     BackgroundColor="Transparent"
-                     HeightRequest="80"
-                     Margin="0,1,10,0"
-                     Clicked="feedAxolotlTapped"
-                     xct:TouchEffect.AnimationDuration="250"
+
+        <ImageButton
+            HorizontalOptions="End"
+            BackgroundColor="Transparent"
+            Source="water_cold"
+            Clicked="TouchCommand"
+            WidthRequest="75"
+            HeightRequest="75"
+            Margin="0,10,13,0"
+            xct:TouchEffect.AnimationDuration="250"
                      xct:TouchEffect.PressedScale="0.75"
                      xct:TouchEffect.PressedOpacity="0.6"
-                     />
+                     xct:TouchEffect.LongPressDuration="1000"
+                     xct:TouchEffect.LongPressCommand="{Binding TouchCommand}">
 
-        
+        </ImageButton>
+
+
+
         <Image x:Name="axolotlImage"
                Source="Axolotl_nothealthy_1"
                HorizontalOptions="CenterAndExpand"
                VerticalOptions="CenterAndExpand"
                HeightRequest="320"
-               Margin="0, -340, 100, 0"
+               Margin="0, -400, 100, -50"
                xct:TouchEffect.AnimationDuration="250"
                      xct:TouchEffect.PressedScale="0.75"
                      xct:TouchEffect.PressedOpacity="0.6">
@@ -174,7 +166,7 @@
         <StackLayout Margin="5">
             <axolotlspace:SlideToActView HeightRequest="60"
                                          WidthRequest="100"
-                                        Margin="0,7,0,0"
+                                        Margin="0,0,120,0"
                                    SlideCompleted="Handle_SlideCompleted">
 
                 <axolotlspace:SlideToActView.Thumb
@@ -197,7 +189,8 @@
                        HasShadow="false" 
                        BackgroundColor="#498D88" 
                            
-                       Padding="20">
+                       Padding="20"
+                           Margin="20,0,0,0">
                         <Label Text="Swipe right to clean the tank" 
                            HorizontalOptions="CenterAndExpand" 
                            VerticalOptions="CenterAndExpand"
@@ -215,6 +208,17 @@
             <Label x:Name="MessageLbl" 
                FontAttributes="Italic" 
                TextColor="White" />
+            <ImageButton x:Name="feedIcon"
+                     HorizontalOptions="End"
+                     Source="feed_icon"
+                     BackgroundColor="Transparent"
+                     HeightRequest="80"
+                     Margin="0,-100,10,40"
+                     Clicked="feedAxolotlTapped"
+                     xct:TouchEffect.AnimationDuration="250"
+                     xct:TouchEffect.PressedScale="0.75"
+                     xct:TouchEffect.PressedOpacity="0.6"
+                     />
 
 
         </StackLayout>
