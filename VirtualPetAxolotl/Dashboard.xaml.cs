@@ -17,14 +17,23 @@ namespace VirtualPetAxolotl
     public partial class Dashboard : ContentPage
     {
         public static Dashboard Current;
-
+        private Axolotl axolotl = new Axolotl();
         public Dashboard()
         {
             InitializeComponent();
             Current = this;
             axolotlImage.Source = Axolotl.AxolotlState.CurrentStateType.ToString();
             UpdateXpLevel();
+
+            
+
+            if (axolotlNameLabel.Text != axolotl.AxoltolName)
+            {
+                axolotlNameLabel.Text = axolotl.AxoltolName;
+            }
         }
+
+        
 
         async void menuClicked(object sender, EventArgs e)
         {
@@ -42,6 +51,7 @@ namespace VirtualPetAxolotl
                 Current.AxolotlDead();
             }
         }
+        
 
         public static void UpdateXpLevel()
         {
@@ -49,7 +59,7 @@ namespace VirtualPetAxolotl
 
             if (axolotlXp < 1)
             {
-                Current.levelLabel.Text = "Not being cared for";
+                Current.levelLabel.Text = "Care Needed";
                 Current.xpLabel.Text = "tap the plant to feed your Axolotl";
             }
             else
@@ -80,10 +90,10 @@ namespace VirtualPetAxolotl
             Current.xpProgBarFilter.ProgressTo(Axolotl.FilterState.HP / 100.0, 1000, Easing.Linear);
         }
 
-        async void EditNameTapped(object sender, EventArgs e)
+     /*   async void EditNameTapped(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new EnterNamePage());
-        }
+        }*/
 
 
         void OnTapGestureRecognizerTapped(object sender, EventArgs args)
@@ -117,10 +127,10 @@ namespace VirtualPetAxolotl
 
                     if (answer)
                     {
-                        Axolotl.Init();
+                        
                         axolotlImage.Source = Axolotl.AxolotlState.CurrentStateType.ToString();
-                        Current.levelLabel.Text = "Not being cared for";
-                        Current.xpLabel.Text = "tap the plant to feed your Axolotl";
+                        await Navigation.PushModalAsync(new EnterNamePage());
+
 
                     }
                 });

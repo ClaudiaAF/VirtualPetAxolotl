@@ -23,7 +23,7 @@
             
         </ImageButton>
 
-        <Button Text="My Axolotl"
+        <Label Text="My Axolotl"
                     HorizontalOptions="Center"
                     VerticalOptions="CenterAndExpand"
                     FontAttributes="Bold"
@@ -31,8 +31,7 @@
                 Margin="0,-55,0,0"
                     TextColor="#ffff"
                     BackgroundColor="Transparent"
-                    Clicked="EditNameTapped"
-                    x:Name="axolotlNameButton" />
+                    x:Name="axolotlNameLabel" />
         
         <Label x:Name="levelLabel" 
             Text="Level 1"
@@ -217,10 +216,6 @@
                FontAttributes="Italic" 
                TextColor="White" />
 
-            <ImageButton x:Name="waterClean"
-                         BackgroundColor="Blue">
-                
-            </ImageButton>
 
         </StackLayout>
 

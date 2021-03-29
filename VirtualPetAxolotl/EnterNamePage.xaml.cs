@@ -24,6 +24,7 @@ namespace VirtualPetAxolotl
         {
             axolotl.AxoltolName = AxolotlNameInput.Text;
             Axolotl.Init();
+            await DisplayAlert("Meet Your New Pet!", "To get started, tap on the gear icon > Help to get the low down on how to take care of your axoltol", "OK");
             await Navigation.PushModalAsync(new Dashboard());
         }
     }
