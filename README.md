@@ -228,7 +228,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 
 * **Claudia Ferreira** - 180181@virtualwindow.co.za
-* **Project Link** - https://github.com/ClaudiaAF/Snappit-AN.git
+* **Project Link** - https://github.com/ClaudiaAF/VirtualPetAxolotl.git
 
 
 
@@ -237,4 +237,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * My lecturer Christof Enslin
 * C# Visual Studio <a href="https://docs.microsoft.com/en-us/visualstudio/get-started/csharp/?view=vs-2022">Documentation</a>
 * <a href="https://docs.microsoft.com/en-us/xamarin/community-toolkit/">Xamarin Community Toolkit</a>
-* [Plagiarism Form](PlagiarismForm_ClaudiaFerreira.png)
+* [Plagiarism Form](term1.png)
